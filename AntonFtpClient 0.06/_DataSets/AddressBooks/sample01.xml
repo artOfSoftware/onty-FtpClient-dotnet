@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AddressBook>
+  <AddressBookEntries>
+
+    <AddressBookEntry>
+      <Title>ABC</Title>
+      <Host>ftp.abc.com</Host>
+      <UserName>user</UserName>
+      <UserPass>pass</UserPass>
+      <IniDir>/</IniDir>
+      <Comment>a fake private site</Comment>
+    </AddressBookEntry>
+    
+    <AddressBookEntry>
+      <Title>XYZ</Title>
+      <Host>ftp.xyz.org</Host>
+      <UserName>ftp</UserName>
+      <UserPass>test@here.com</UserPass>
+      <IniDir>/</IniDir>
+      <Comment>a fake public site</Comment>
+    </AddressBookEntry>
+    
+    <AddressBookEntry>
+      <Title>local</Title>
+      <Host>localhost</Host>
+      <UserName>onty</UserName>
+      <UserPass>6871</UserPass>
+      <IniDir>/</IniDir>
+      <Comment>local</Comment>
+    </AddressBookEntry>
+
+    <AddressBookEntry>
+      <Title>SunSite</Title>
+      <Host>sunsite.unc.edu</Host>
+      <UserName>ftp</UserName>
+      <UserPass>user@domain.com</UserPass>
+      <IniDir>/</IniDir>
+      <Comment>A well-known FTP site.</Comment>
+    </AddressBookEntry>
+
+  </AddressBookEntries>
+</AddressBook>
