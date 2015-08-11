@@ -1,7 +1,7 @@
 This is a simple FTP Client based on ArxOne FTP Client library.
+https://github.com/ontytoom/AntonFtpClient
 
-
-It's main features include:
+Main features include:
 
 + Browsing public and private FTP sites
 + Ability to recursively evaluate disk space usage
