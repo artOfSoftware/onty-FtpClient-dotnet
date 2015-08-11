@@ -23,8 +23,9 @@ namespace Anton.FtpClientGui.UI
 		private Dictionary<TreeNode, SiteEntry> mapTree;
 
 		// forms
-		public FormBg formBg;
+		public FormSiteScanner formBg;
 		public FormAddressBook formAddressBook;
+		public FormAbout formAbout;
 
 		#endregion
 
@@ -68,22 +69,14 @@ namespace Anton.FtpClientGui.UI
 
 			mapTree = new Dictionary<TreeNode, SiteEntry>();
 
-			SiteEntry rootEntry;
-
 			labelHostName.Text = site.addressBookEntry.host;
 
-			//try
-			//{
-				SetAppState( AppState.Busy );
-				rootEntry = ChangeDir( null, true );
-				SetAppState( AppState.Available );
-			//}
-			//catch ( Exception ex )
-			//{
-			//	SetAppState( AppState.Available );
-			//	MessageBox.Show( this, ex.Message );
-			//	return;
-			//}
+			SetAppState( AppState.Busy );
+
+			SiteEntry rootEntry;
+			rootEntry = ChangeDir( null, true );
+
+			SetAppState( AppState.Available );
 
 			TreeBuild();
 		}
@@ -148,13 +141,16 @@ namespace Anton.FtpClientGui.UI
 			switch ( type )
 			{
 				case FtpEntryType.File:
-					img = Image.FromFile( @"Icons/16/file-16.png" );
+					img = Properties.Resources.file_16;
+						//Image.FromFile( @"Icons/16/file-16.png" );
 					break;
 				case FtpEntryType.Directory:
-					img = Image.FromFile( @"Icons/16/folder-16.png" );
+					img = Properties.Resources.folder_16;
+						//Image.FromFile( @"Icons/16/folder-16.png" );
 					break;
 				case FtpEntryType.Link:
-					img = Image.FromFile( @"Icons/16/shortcut.png" );
+					img = Properties.Resources.shortcut_16;
+						//Image.FromFile( @"Icons/16/shortcut.png" );
 					break;
 				default:
 					img = new Bitmap( 16,16 );
@@ -282,9 +278,15 @@ namespace Anton.FtpClientGui.UI
 
 		private void toolStripMenuItem_AddressBook_Click( object sender, EventArgs e )
 		{
-			FormAddressBook formAddressBook = new FormAddressBook( this );
-			this.formAddressBook = formAddressBook;
-			formAddressBook.Show( this );
+			if ( this.formAddressBook != null )
+			{
+				this.formAddressBook.BringToFront();
+				this.formAddressBook.Focus();
+				return;
+			}
+
+			this.formAddressBook = new FormAddressBook( this );
+			this.formAddressBook.Show( this );
 		}
 
 		private void toolStripMenuItem_AnalyzeSiteUsage_Click( object sender, EventArgs e )
@@ -300,8 +302,40 @@ namespace Anton.FtpClientGui.UI
 				return;
 			}
 
-			formBg = new FormBg( this, site, site.currentDir );
+			formBg = new FormSiteScanner( this, site, site.currentDir );
 			formBg.Show( this );
+		}
+
+		private void toolStripMenuItem_About_Click( object sender, EventArgs e )
+		{
+			if ( this.formAbout != null )
+			{
+				this.formAbout.BringToFront();
+				this.formAbout.Focus();
+				return;
+			}
+
+			this.formAbout = new FormAbout( this );
+			formAbout.Show( this );
+		}
+
+		#endregion
+
+
+		#region Context menu
+
+		private void toolStripMenuItem_ItemDetails_Click( object sender, EventArgs e )
+		{
+			if ( gridItems.SelectedRows.Count != 1 )
+			{
+				MessageBox.Show( this, "Please select exactly 1 item to view details." );
+				return;
+			}
+
+			SiteEntry entry = map[gridItems.SelectedRows[0]];
+
+			FormItemDetails formItemInfo = new FormItemDetails( entry );
+			formItemInfo.ShowDialog( this );
 		}
 
 		#endregion
@@ -328,7 +362,6 @@ namespace Anton.FtpClientGui.UI
 			Busy,
 			Other = 6871
 		}
-
 
 	}//class
 

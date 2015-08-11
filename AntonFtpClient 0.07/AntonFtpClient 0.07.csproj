@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,8 +53,8 @@
     <StartupObject>Anton.FtpClientGui.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ArxOne.Ftp, Version=1.7.1.0, Culture=neutral, PublicKeyToken=da7223da01d9ab51, processorArchitecture=MSIL">
-      <HintPath>..\packages\ArxOne.Ftp.1.7.1.0\lib\net40-Client\ArxOne.Ftp.dll</HintPath>
+    <Reference Include="ArxOne.Ftp, Version=1.8.0.0, Culture=neutral, PublicKeyToken=da7223da01d9ab51, processorArchitecture=MSIL">
+      <HintPath>..\packages\ArxOne.Ftp.1.8.0.0\lib\net40-Client\ArxOne.Ftp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -58,6 +73,12 @@
     <Compile Include="Domain\AccItem.cs" />
     <Compile Include="Domain\AddressBook.cs" />
     <Compile Include="Domain\Site.cs" />
+    <Compile Include="UI\FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormAddressBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,11 +91,11 @@
     <Compile Include="UI\FormAddressBookEntry.Designer.cs">
       <DependentUpon>FormAddressBookEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FormBg.cs">
+    <Compile Include="UI\FormSiteScanner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FormBg.Designer.cs">
-      <DependentUpon>FormBg.cs</DependentUpon>
+    <Compile Include="UI\FormSiteScanner.Designer.cs">
+      <DependentUpon>FormSiteScanner.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FormFtpClient.cs">
       <SubType>Form</SubType>
@@ -84,18 +105,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\FormItemDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormItemDetails.Designer.cs">
+      <DependentUpon>FormItemDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\AddressBookSerializer.cs" />
     <Compile Include="Util\BgThread.cs" />
     <Compile Include="Util\BgUiThread.cs" />
     <Compile Include="Util\DataWarehouse.cs" />
+    <Compile Include="Util\Logger.cs" />
+    <EmbeddedResource Include="UI\FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FormAddressBook.resx">
       <DependentUpon>FormAddressBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormAddressBookEntry.resx">
       <DependentUpon>FormAddressBookEntry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FormBg.resx">
-      <DependentUpon>FormBg.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FormSiteScanner.resx">
+      <DependentUpon>FormSiteScanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormFtpClient.resx">
       <DependentUpon>FormFtpClient.cs</DependentUpon>
@@ -110,6 +141,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\FormItemDetails.resx">
+      <DependentUpon>FormItemDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -123,34 +157,37 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icons\16\AddressBook-blue-16.png" />
-    <Content Include="Icons\16\analysis-16.png" />
-    <Content Include="Icons\16\file-16.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\24\file-24.png" />
-    <Content Include="Icons\32\file-32.png" />
-    <Content Include="Icons\48\file-48.png" />
-    <Content Include="Icons\16\file2-16.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\48\file2-48.png" />
-    <Content Include="Icons\16\folder-16.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\24\folder-24.png" />
-    <Content Include="Icons\48\folder-48.png" />
-    <Content Include="Icons\24\folder-green-24.png" />
-    <Content Include="Icons\48\folder2-48.png" />
-    <Content Include="Icons\16\shortcut-16.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Resources\Images\16\AddressBook-blue-16.png" />
+    <Content Include="Resources\Images\16\analysis-16.png" />
+    <Content Include="Resources\Images\16\file-16.png" />
+    <Content Include="Resources\Images\24\file-24.png" />
+    <Content Include="Resources\Images\32\file-32.png" />
+    <Content Include="Resources\Images\48\file-48.png" />
+    <Content Include="Resources\Images\16\file2-16.png" />
+    <Content Include="Resources\Images\48\file2-48.png" />
+    <Content Include="Resources\Images\16\folder-16.png" />
+    <Content Include="Resources\Images\24\folder-24.png" />
+    <Content Include="Resources\Images\48\folder-48.png" />
+    <Content Include="Resources\Images\24\folder-green-24.png" />
+    <Content Include="Resources\Images\48\folder2-48.png" />
+    <Content Include="Resources\Images\16\shortcut-16.png" />
     <Content Include="_DataSets\AddressBooks\sample01.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="_ReadMe.txt" />
+    <Content Include="_notes.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

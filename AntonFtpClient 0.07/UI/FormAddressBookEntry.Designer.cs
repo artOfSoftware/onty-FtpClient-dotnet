@@ -38,11 +38,13 @@
 			this.textPassword = new System.Windows.Forms.TextBox();
 			this.textTitle = new System.Windows.Forms.TextBox();
 			this.textUsername = new System.Windows.Forms.TextBox();
-			this.textHostname = new System.Windows.Forms.TextBox();
+			this.textHost = new System.Windows.Forms.TextBox();
 			this.textComment = new System.Windows.Forms.TextBox();
 			this.textIniDir = new System.Windows.Forms.TextBox();
 			this.labelHeader = new System.Windows.Forms.Label();
 			this.linkCancel = new System.Windows.Forms.LinkLabel();
+			this.textPort = new System.Windows.Forms.TextBox();
+			this.label7 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// linkSave
@@ -50,7 +52,7 @@
 			this.linkSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.linkSave.AutoSize = true;
 			this.linkSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.linkSave.Location = new System.Drawing.Point(119, 239);
+			this.linkSave.Location = new System.Drawing.Point(119, 321);
 			this.linkSave.Name = "linkSave";
 			this.linkSave.Size = new System.Drawing.Size(45, 20);
 			this.linkSave.TabIndex = 91;
@@ -60,7 +62,7 @@
 			// 
 			// label6
 			// 
-			this.label6.Location = new System.Drawing.Point(19, 174);
+			this.label6.Location = new System.Drawing.Point(19, 198);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(94, 18);
 			this.label6.TabIndex = 71;
@@ -69,7 +71,7 @@
 			// 
 			// label4
 			// 
-			this.label4.Location = new System.Drawing.Point(19, 148);
+			this.label4.Location = new System.Drawing.Point(19, 172);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(94, 18);
 			this.label4.TabIndex = 61;
@@ -78,7 +80,7 @@
 			// 
 			// label3
 			// 
-			this.label3.Location = new System.Drawing.Point(19, 122);
+			this.label3.Location = new System.Drawing.Point(19, 146);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(94, 18);
 			this.label3.TabIndex = 51;
@@ -87,7 +89,7 @@
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(19, 96);
+			this.label2.Location = new System.Drawing.Point(19, 120);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(94, 18);
 			this.label2.TabIndex = 31;
@@ -109,14 +111,14 @@
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(94, 18);
 			this.label1.TabIndex = 21;
-			this.label1.Text = "Server Host Name";
+			this.label1.Text = "Server Host";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// textPassword
 			// 
 			this.textPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textPassword.Location = new System.Drawing.Point(119, 122);
+			this.textPassword.Location = new System.Drawing.Point(119, 146);
 			this.textPassword.Name = "textPassword";
 			this.textPassword.PasswordChar = '#';
 			this.textPassword.Size = new System.Drawing.Size(245, 20);
@@ -136,36 +138,36 @@
 			// 
 			this.textUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textUsername.Location = new System.Drawing.Point(119, 95);
+			this.textUsername.Location = new System.Drawing.Point(119, 119);
 			this.textUsername.Name = "textUsername";
 			this.textUsername.Size = new System.Drawing.Size(245, 20);
 			this.textUsername.TabIndex = 32;
 			// 
-			// textHostname
+			// textHost
 			// 
-			this.textHostname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.textHost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textHostname.Location = new System.Drawing.Point(119, 68);
-			this.textHostname.Name = "textHostname";
-			this.textHostname.Size = new System.Drawing.Size(245, 20);
-			this.textHostname.TabIndex = 22;
+			this.textHost.Location = new System.Drawing.Point(119, 68);
+			this.textHost.Name = "textHost";
+			this.textHost.Size = new System.Drawing.Size(245, 20);
+			this.textHost.TabIndex = 22;
 			// 
 			// textComment
 			// 
 			this.textComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textComment.Location = new System.Drawing.Point(119, 174);
+			this.textComment.Location = new System.Drawing.Point(119, 198);
 			this.textComment.Multiline = true;
 			this.textComment.Name = "textComment";
-			this.textComment.Size = new System.Drawing.Size(245, 61);
+			this.textComment.Size = new System.Drawing.Size(245, 119);
 			this.textComment.TabIndex = 73;
 			// 
 			// textIniDir
 			// 
 			this.textIniDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textIniDir.Location = new System.Drawing.Point(119, 148);
+			this.textIniDir.Location = new System.Drawing.Point(119, 172);
 			this.textIniDir.Name = "textIniDir";
 			this.textIniDir.Size = new System.Drawing.Size(245, 20);
 			this.textIniDir.TabIndex = 62;
@@ -186,7 +188,7 @@
 			this.linkCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.linkCancel.AutoSize = true;
 			this.linkCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.linkCancel.Location = new System.Drawing.Point(185, 239);
+			this.linkCancel.Location = new System.Drawing.Point(185, 321);
 			this.linkCancel.Name = "linkCancel";
 			this.linkCancel.Size = new System.Drawing.Size(58, 20);
 			this.linkCancel.TabIndex = 92;
@@ -194,11 +196,29 @@
 			this.linkCancel.Text = "Cancel";
 			this.linkCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCancel_LinkClicked);
 			// 
+			// textPort
+			// 
+			this.textPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textPort.Location = new System.Drawing.Point(119, 93);
+			this.textPort.Name = "textPort";
+			this.textPort.Size = new System.Drawing.Size(67, 20);
+			this.textPort.TabIndex = 27;
+			// 
+			// label7
+			// 
+			this.label7.Location = new System.Drawing.Point(19, 94);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(94, 18);
+			this.label7.TabIndex = 26;
+			this.label7.Text = "Server Port #";
+			this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
 			// FormAddressBookEntry
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(376, 279);
+			this.ClientSize = new System.Drawing.Size(376, 361);
 			this.Controls.Add(this.labelHeader);
 			this.Controls.Add(this.linkCancel);
 			this.Controls.Add(this.linkSave);
@@ -207,11 +227,13 @@
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label5);
+			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textPassword);
 			this.Controls.Add(this.textTitle);
 			this.Controls.Add(this.textUsername);
-			this.Controls.Add(this.textHostname);
+			this.Controls.Add(this.textPort);
+			this.Controls.Add(this.textHost);
 			this.Controls.Add(this.textComment);
 			this.Controls.Add(this.textIniDir);
 			this.Name = "FormAddressBookEntry";
@@ -233,10 +255,12 @@
 		private System.Windows.Forms.TextBox textPassword;
 		private System.Windows.Forms.TextBox textTitle;
 		private System.Windows.Forms.TextBox textUsername;
-		private System.Windows.Forms.TextBox textHostname;
+		private System.Windows.Forms.TextBox textHost;
 		private System.Windows.Forms.TextBox textComment;
 		private System.Windows.Forms.TextBox textIniDir;
 		private System.Windows.Forms.Label labelHeader;
 		private System.Windows.Forms.LinkLabel linkCancel;
+		private System.Windows.Forms.TextBox textPort;
+		private System.Windows.Forms.Label label7;
 	}
 }

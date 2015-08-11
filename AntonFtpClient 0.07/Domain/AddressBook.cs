@@ -25,9 +25,9 @@ namespace Anton.FtpClientGui.Domain
 	
 		#endregion
 
-		public void AddEntry( string title, string host, string user, string pass, string iniDir, string comment )
+		public void AddEntry( string title, string host, int port, string user, string pass, string iniDir, string comment )
 		{
-			AddressBookEntry entry = new AddressBookEntry( title, host, user, pass, iniDir, comment );
+			AddressBookEntry entry = new AddressBookEntry( title, host, port, user, pass, iniDir, comment );
 			book.Add( entry );
 		}
 
@@ -48,8 +48,12 @@ namespace Anton.FtpClientGui.Domain
 
 		public void AppendSampleData()
 		{
-			AddEntry( "sAsp.net", "ftp.annatoom.com", "ontytest", "onty3test4", "/", "a real non-public site" );
-			AddEntry( "swfwmd", "ftp.swfwmd.state.fl.us", "ftp", "test@here.com", "/", "a real public site" );
+			AddEntry( "swfwmd", "ftp.swfwmd.state.fl.us", 21, "ftp", "test@here.com", "/", "a real public site" );
+			AddEntry( "FreeBSD.org", "ftp.ch.freebsd.org", 21, "ftp", "test@here.com", "/", "a real public site" );
+			AddEntry( "IU.edu", "ftp.ussg.iu.edu", 21, "ftp", "test@here.com", "/", "a real public site" );
+			AddEntry( "Kernel.org", "ftp.kernel.org", 21, "ftp", "test@here.com", "/", "a real public site" );
+			AddEntry( "Mirror.nl", "ftp.mirror.nl", 21, "ftp", "test@here.com", "/", "a real public site" );
+			AddEntry( "RedIris", "ftp.rediris.es", 21, "ftp", "test@here.com", "/", "a real public site" );
 		}
 
 
@@ -78,6 +82,9 @@ namespace Anton.FtpClientGui.Domain
 		[XmlElement( "Host" )]
 		public string host;
 
+		[XmlElement( "Port" )]
+		public int port;
+
 		[XmlElement( "UserName" )]
 		public string userName;
 
@@ -96,10 +103,11 @@ namespace Anton.FtpClientGui.Domain
 		{
 		}
 
-		public AddressBookEntry( string title, string host, string user, string pass, string iniDir, string comment )
+		public AddressBookEntry( string title, string host, int port, string user, string pass, string iniDir, string comment )
 		{
 			this.title    = title;
 			this.host     = host;
+			this.port     = port;
 			this.userName = user;
 			this.userPass = pass;
 			this.iniDir   = iniDir;

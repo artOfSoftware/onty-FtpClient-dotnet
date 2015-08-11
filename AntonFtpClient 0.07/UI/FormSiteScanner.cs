@@ -13,7 +13,7 @@ using Anton.FtpClientGui.Util;
 namespace Anton.FtpClientGui.UI
 {
 
-	public partial class FormBg : Form
+	public partial class FormSiteScanner : Form
 	{
 
 		#region Data
@@ -32,7 +32,7 @@ namespace Anton.FtpClientGui.UI
 		#endregion
 
 
-		public FormBg( FormFtpClient formMain, Site site, SiteEntry dirStart )
+		public FormSiteScanner( FormFtpClient formMain, Site site, SiteEntry dirStart )
 		{
 			InitializeComponent();
 
@@ -111,7 +111,7 @@ namespace Anton.FtpClientGui.UI
 			map = new Dictionary<string, DataGridViewRow>();
 			gridDirs.Rows.Clear();
 
-			HandleMessageDebug( "Starting in dir '" + this.dirStart + "'" );
+			HandleMessageDebug( "Starting in dir '" + this.dirStart.Path + "'" );
 			thread.Start();
 
 			UpdateUi();

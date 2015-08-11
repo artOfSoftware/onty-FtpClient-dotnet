@@ -1,4 +1,7 @@
-﻿Documentation for FTP component:
+﻿Developer notes
+
+
+Documentation for FTP component:
 https://github.com/ArxOne/FTP
 
 
@@ -16,6 +19,15 @@ https://github.com/ArxOne/FTP
 
 
 
-FTP List:	http://www.ftp-sites.org/
+FTP List:
+	http://www.ftp-sites.org/
+
+Some samples:
+	ftp://ftp.ch.freebsd.org/
+	ftp://ftp.ussg.iu.edu/
+	ftp://ftp.kernel.org/
+	ftp://ftp.mirror.nl/
+	ftp://ftp.rediris.es/
+
 
 

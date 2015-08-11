@@ -28,26 +28,31 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFtpClient));
 			this.textOut = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.labelCwd = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.menuMain = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem_AddressBook = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem_AnalyzeSiteUsage = new System.Windows.Forms.ToolStripMenuItem();
 			this.labelHostName = new System.Windows.Forms.Label();
 			this.linkCdUp = new System.Windows.Forms.LinkLabel();
 			this.label2 = new System.Windows.Forms.Label();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.treeDirs = new System.Windows.Forms.TreeView();
 			this.gridItems = new System.Windows.Forms.DataGridView();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.toolStripMenuItem_ItemDetails = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem_AddressBook = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem_AnalyzeSiteUsage = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridItems)).BeginInit();
+			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// textOut
@@ -55,11 +60,12 @@
 			this.textOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.textOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-			this.textOut.Location = new System.Drawing.Point(12, 433);
+			this.textOut.Location = new System.Drawing.Point(12, 425);
 			this.textOut.Multiline = true;
 			this.textOut.Name = "textOut";
+			this.textOut.ReadOnly = true;
 			this.textOut.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textOut.Size = new System.Drawing.Size(723, 80);
+			this.textOut.Size = new System.Drawing.Size(726, 80);
 			this.textOut.TabIndex = 1;
 			// 
 			// label1
@@ -94,28 +100,13 @@
 			// 
 			this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_AddressBook,
-            this.toolStripMenuItem_AnalyzeSiteUsage});
+            this.toolStripMenuItem_AnalyzeSiteUsage,
+            this.toolStripMenuItem_About});
 			this.menuMain.Location = new System.Drawing.Point(0, 0);
 			this.menuMain.Name = "menuMain";
-			this.menuMain.Size = new System.Drawing.Size(747, 24);
+			this.menuMain.Size = new System.Drawing.Size(750, 24);
 			this.menuMain.TabIndex = 1;
 			this.menuMain.Text = "Main Menu";
-			// 
-			// toolStripMenuItem_AddressBook
-			// 
-			this.toolStripMenuItem_AddressBook.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem_AddressBook.Image")));
-			this.toolStripMenuItem_AddressBook.Name = "toolStripMenuItem_AddressBook";
-			this.toolStripMenuItem_AddressBook.Size = new System.Drawing.Size(100, 20);
-			this.toolStripMenuItem_AddressBook.Text = "Address Book";
-			this.toolStripMenuItem_AddressBook.Click += new System.EventHandler(this.toolStripMenuItem_AddressBook_Click);
-			// 
-			// toolStripMenuItem_AnalyzeSiteUsage
-			// 
-			this.toolStripMenuItem_AnalyzeSiteUsage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem_AnalyzeSiteUsage.Image")));
-			this.toolStripMenuItem_AnalyzeSiteUsage.Name = "toolStripMenuItem_AnalyzeSiteUsage";
-			this.toolStripMenuItem_AnalyzeSiteUsage.Size = new System.Drawing.Size(127, 20);
-			this.toolStripMenuItem_AnalyzeSiteUsage.Text = "Analyze Site Usage";
-			this.toolStripMenuItem_AnalyzeSiteUsage.Click += new System.EventHandler(this.toolStripMenuItem_AnalyzeSiteUsage_Click);
 			// 
 			// labelHostName
 			// 
@@ -141,7 +132,7 @@
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(16, 413);
+			this.label2.Location = new System.Drawing.Point(16, 405);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(109, 17);
 			this.label2.TabIndex = 15;
@@ -149,6 +140,9 @@
 			// 
 			// splitContainer1
 			// 
+			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.splitContainer1.Location = new System.Drawing.Point(12, 100);
 			this.splitContainer1.Name = "splitContainer1";
 			// 
@@ -159,7 +153,7 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.gridItems);
-			this.splitContainer1.Size = new System.Drawing.Size(723, 310);
+			this.splitContainer1.Size = new System.Drawing.Size(726, 302);
 			this.splitContainer1.SplitterDistance = 215;
 			this.splitContainer1.TabIndex = 16;
 			// 
@@ -170,7 +164,7 @@
 			this.treeDirs.HideSelection = false;
 			this.treeDirs.Location = new System.Drawing.Point(0, 0);
 			this.treeDirs.Name = "treeDirs";
-			this.treeDirs.Size = new System.Drawing.Size(215, 310);
+			this.treeDirs.Size = new System.Drawing.Size(215, 302);
 			this.treeDirs.TabIndex = 15;
 			this.treeDirs.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeDirs_AfterSelect);
 			// 
@@ -179,21 +173,59 @@
 			this.gridItems.AllowUserToAddRows = false;
 			this.gridItems.AllowUserToDeleteRows = false;
 			this.gridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.gridItems.ContextMenuStrip = this.contextMenuStrip1;
 			this.gridItems.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gridItems.Location = new System.Drawing.Point(0, 0);
 			this.gridItems.Name = "gridItems";
 			this.gridItems.ReadOnly = true;
 			this.gridItems.RowHeadersWidth = 28;
 			this.gridItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.gridItems.Size = new System.Drawing.Size(504, 310);
+			this.gridItems.Size = new System.Drawing.Size(507, 302);
 			this.gridItems.TabIndex = 3;
 			this.gridItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridItems_CellDoubleClick);
+			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_ItemDetails});
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(157, 26);
+			// 
+			// toolStripMenuItem_ItemDetails
+			// 
+			this.toolStripMenuItem_ItemDetails.Name = "toolStripMenuItem_ItemDetails";
+			this.toolStripMenuItem_ItemDetails.Size = new System.Drawing.Size(156, 22);
+			this.toolStripMenuItem_ItemDetails.Text = "View Item Details";
+			this.toolStripMenuItem_ItemDetails.Click += new System.EventHandler(this.toolStripMenuItem_ItemDetails_Click);
+			// 
+			// toolStripMenuItem_AddressBook
+			// 
+			this.toolStripMenuItem_AddressBook.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem_AddressBook.Image")));
+			this.toolStripMenuItem_AddressBook.Name = "toolStripMenuItem_AddressBook";
+			this.toolStripMenuItem_AddressBook.Size = new System.Drawing.Size(100, 20);
+			this.toolStripMenuItem_AddressBook.Text = "Address Book";
+			this.toolStripMenuItem_AddressBook.Click += new System.EventHandler(this.toolStripMenuItem_AddressBook_Click);
+			// 
+			// toolStripMenuItem_AnalyzeSiteUsage
+			// 
+			this.toolStripMenuItem_AnalyzeSiteUsage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem_AnalyzeSiteUsage.Image")));
+			this.toolStripMenuItem_AnalyzeSiteUsage.Name = "toolStripMenuItem_AnalyzeSiteUsage";
+			this.toolStripMenuItem_AnalyzeSiteUsage.Size = new System.Drawing.Size(127, 20);
+			this.toolStripMenuItem_AnalyzeSiteUsage.Text = "Analyze Site Usage";
+			this.toolStripMenuItem_AnalyzeSiteUsage.Click += new System.EventHandler(this.toolStripMenuItem_AnalyzeSiteUsage_Click);
+			// 
+			// toolStripMenuItem_About
+			// 
+			this.toolStripMenuItem_About.Name = "toolStripMenuItem_About";
+			this.toolStripMenuItem_About.Size = new System.Drawing.Size(48, 20);
+			this.toolStripMenuItem_About.Text = "About";
+			this.toolStripMenuItem_About.Click += new System.EventHandler(this.toolStripMenuItem_About_Click);
 			// 
 			// FormFtpClient
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(747, 525);
+			this.ClientSize = new System.Drawing.Size(750, 517);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.linkCdUp);
@@ -213,6 +245,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
+			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -232,6 +265,9 @@
 		private System.Windows.Forms.TreeView treeDirs;
 		private System.Windows.Forms.DataGridView gridItems;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_AnalyzeSiteUsage;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ItemDetails;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_About;
 	}
 }
 

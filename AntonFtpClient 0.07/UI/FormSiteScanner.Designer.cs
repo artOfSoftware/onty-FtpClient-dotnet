@@ -1,6 +1,6 @@
 ﻿namespace Anton.FtpClientGui.UI
 {
-	partial class FormBg
+	partial class FormSiteScanner
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -67,6 +67,9 @@
 			// 
 			// splitContainer1
 			// 
+			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.splitContainer1.Location = new System.Drawing.Point(12, 32);
 			this.splitContainer1.Name = "splitContainer1";
 			this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -113,7 +116,7 @@
 			this.Controls.Add(this.linkStart);
 			this.Controls.Add(this.linkStop);
 			this.Name = "FormBg";
-			this.Text = "Runner...";
+			this.Text = "Site Scanner";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormBg_FormClosing);
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBg_FormClosed);
 			this.splitContainer1.Panel1.ResumeLayout(false);

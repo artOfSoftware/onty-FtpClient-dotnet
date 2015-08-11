@@ -43,7 +43,8 @@ namespace Anton.FtpClientGui.UI
 				entry = new AddressBookEntry();
 
 			textTitle.Text = entry.title;
-			textHostname.Text = entry.host;
+			textHost.Text = entry.host;
+			textPort.Text = entry.port.ToString();
 			textUsername.Text = entry.userName;
 			textPassword.Text = entry.userPass;
 			textIniDir.Text = entry.iniDir;
@@ -51,14 +52,29 @@ namespace Anton.FtpClientGui.UI
 		}
 
 
-		private void UnpopulateFields( AddressBookEntry entry )
+		// TODO: Need error checking for info: Make sure host has valid format, user name is not blank.
+		private bool UnpopulateFields( AddressBookEntry entry )
 		{
 			entry.title = textTitle.Text;
-			entry.host = textHostname.Text;
+			entry.host = textHost.Text;
 			entry.userName = textUsername.Text;
 			entry.userPass = textPassword.Text;
 			entry.iniDir = textIniDir.Text;
 			entry.comment = textComment.Text;
+
+			try
+			{
+				entry.port = Int32.Parse( textPort.Text );
+				if ( entry.port < 0 || entry.port > 70000 )
+					throw new Exception();
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show( this, "Please make sure the port is an integer number between 1 and 70000" );
+				return false;
+			}
+
+			return true;
 		}
 
 		private void linkSave_LinkClicked( object sender, LinkLabelLinkClickedEventArgs e )

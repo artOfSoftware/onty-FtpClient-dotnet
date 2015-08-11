@@ -1,7 +1,11 @@
-This is a simple FTP Client based on ArxOne FTP Client library.
+Anton FTP Client
 https://github.com/ontytoom/AntonFtpClient
 
-Main features include:
+This is a simple FTP Client written in C#.NET. 
+It is based on ArxOne FTP Client library: https://github.com/ArxOne/FTP
+
+
+Its main features include:
 
 + Browsing public and private FTP sites
 + Ability to recursively evaluate disk space usage
@@ -12,3 +16,9 @@ Main features include:
 Features not currently supported:
 
 - Downloading or uploading of files
+
+
+This project is in alpha stage.
+
+Thank you kindly :-)
+

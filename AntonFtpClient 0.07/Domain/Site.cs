@@ -125,7 +125,7 @@ namespace Anton.FtpClientGui.Domain
 			{
 				SiteEntry entryNew = new SiteEntry( item, this );
 				this.subItems.Add( entryNew );
-				map.Add( item.Path.ToString(), entryNew );
+				map.Add( item.Path.ToString(), entryNew );	//TODO: seen an error here...
 			}
 
 		}
