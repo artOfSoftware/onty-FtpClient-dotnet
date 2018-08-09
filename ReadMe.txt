@@ -1,5 +1,5 @@
 Anton FTP Client
-https://github.com/ontytoom/AntonFtpClient
+https://github.com/artOfSoftware/onty-FtpClient-dotnet
 
 This is a simple FTP Client written in C#.NET. 
 It is based on ArxOne FTP Client library: https://github.com/ArxOne/FTP
